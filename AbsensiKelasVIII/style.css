@@ -1,0 +1,267 @@
+:root {
+    --primary: #4361ee;
+    --primary-light: #4cc9f0;
+    --danger: #f72585;
+    --success: #2ecc71;
+    --warning: #f39c12;
+    --dark: #212529;
+    --light: #f8f9fa;
+    --gray: #6c757d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+header h1 i {
+    margin-right: 10px;
+}
+
+.date {
+    color: var(--gray);
+    font-size: 1rem;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.stat-box .count {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-box.present {
+    background-color: var(--success);
+}
+
+.stat-box.absent {
+    background-color: var(--danger);
+}
+
+.stat-box.remaining {
+    background-color: var(--warning);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn i {
+    font-size: 0.9rem;
+}
+
+.btn.primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn.success {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+.btn.danger {
+    background-color: var(--danger);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.student-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.student-photo {
+    width: 100%;
+    height: 300px;
+    object-fit:cover;
+    border-bottom: 3px solid var(--primary);
+}
+
+.student-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.student-name {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.attendance-status {
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.status-pending {
+    background-color: #f8f9fa;
+    color: var(--gray);
+}
+
+.status-present {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: var(--success);
+}
+
+.status-absent {
+    background-color: rgba(247, 37, 133, 0.1);
+    color: var(--danger);
+}
+
+.attendance-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.attendance-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.attendance-btn i {
+    font-size: 0.8rem;
+}
+
+.present-btn {
+    background-color: var(--success);
+    color: white;
+}
+
+.absent-btn {
+    background-color: var(--danger);
+    color: white;
+}
+
+.attendance-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .students-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .students-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-box {
+        width: 100%;
+    }
+    
+    .student-photo {
+        height: 200px;
+    }
+}
